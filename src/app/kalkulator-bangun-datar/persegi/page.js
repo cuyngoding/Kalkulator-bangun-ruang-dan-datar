@@ -20,7 +20,7 @@ export default function persegi() {
     <div className='min-h-screen bg-gray-500 flex flex-col items-center justify-center p-4'>
       <h1 className='text-4xl font-bold mb-8 text-white'>Kalkulator Persegi</h1>
       <div className='space-y-4'>
-        <TextField variant='outlined' id="outlined-basic" label="Outlined" type='number' value={sisi} onChange={(e) => setSisi(e.target.value)}  className='w-64 p-2 border rounded-lg'/>
+        <TextField variant='filled' id="outlined-basic" label="Outlined" type='number' value={sisi} onChange={(e) => setSisi(e.target.value)}  className='w-64 p-2 border rounded-lg'/>
         <button onClick={hitungLuas} className='bg-blue-500 text-white p-2 ml-3 rounded-lg hover:bg-blue-600 transition duration-300 '>Hitung Luas
         </button>
         <button onClick={hitungKeliling} className='bg-yellow-500 text-white p-2 ml-3 rounded-lg hover:bg-yellow-600 transition duration-300'>Hitung Keliling

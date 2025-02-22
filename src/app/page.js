@@ -10,12 +10,12 @@ function page() {
       </div>
       <div className='space-x-4'>
         <Link href="/kalkulator-bangun-datar">
-      <button className='w-48 bg-blue-500 text-white text-center py-2 px-4 rounded-lg font-bold hover:bg-blue-600 transition duration-300'>
+      <button className='w-48 bg-blue-500 text-white text-center py-2 px-4 rounded-lg font-bold hover:bg-blue-600 transition duration-300 active:scale-95 transition-transform transform'>
         Kalkulator Bangun Datar
       </button>
         </Link>
         <Link href="/kalkulator-bangun-ruang">
-      <button className='w-48 bg-blue-500 text-white text-center py-2 px-4 rounded-lg font-bold hover:bg-blue-600 transition duration-300 '>
+      <button className='w-48 bg-blue-500 text-white text-center py-2 px-4 rounded-lg font-bold hover:bg-blue-600 transition duration-300 active:scale-95 transition-transform transform '>
         Kalkulator Bangun Ruang
       </button>
         </Link>
