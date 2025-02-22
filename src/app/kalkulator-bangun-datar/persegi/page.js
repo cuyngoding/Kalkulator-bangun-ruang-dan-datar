@@ -8,7 +8,6 @@ export default function persegi() {
     const [sisi,setSisi] = useState('')
     const [luas,setLuas] = useState('')
     const [keliling,setKeliling] = useState('')
-
     const hitungLuas = () => {
         const s = parseFloat(sisi)
         setLuas(Math.pow(s,2));
