@@ -39,12 +39,20 @@ function Page() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ padding: 4, marginTop: 4, backgroundColor: '#f5f5f5' }}>
-        <Typography variant="h4" align="center" gutterBottom>
+    <div className="min-h-screen bg-gray-500 flex flex-col items-center justify-center p-4">
+      <Paper
+        elevation={10} // Shadow lebih tebal
+        sx={{
+          padding: 4,
+          marginTop: 4,
+          backgroundColor: '#808588', // Warna background Paper sedikit lebih terang
+          color: 'white', // Warna font putih
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>
           Kalkulator Balok
         </Typography>
-        <Typography variant="subtitle1" align="center" gutterBottom>
+        <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
           Oleh: Ugrasena Wira Nurrahman
         </Typography>
         <Grid container spacing={3}>
@@ -56,6 +64,18 @@ function Page() {
               value={panjang}
               onChange={(e) => setPanjang(e.target.value)}
               variant="outlined"
+              sx={{
+                backgroundColor: 'white', // Warna background input putih
+                borderRadius: '4px',
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'white', // Outline putih
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'white', // Outline putih saat hover
+                  },
+                },
+              }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -66,6 +86,18 @@ function Page() {
               value={lebar}
               onChange={(e) => setLebar(e.target.value)}
               variant="outlined"
+              sx={{
+                backgroundColor: 'white', // Warna background input putih
+                borderRadius: '4px',
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'white', // Outline putih
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'white', // Outline putih saat hover
+                  },
+                },
+              }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -76,11 +108,23 @@ function Page() {
               value={tinggi}
               onChange={(e) => setTinggi(e.target.value)}
               variant="outlined"
+              sx={{
+                backgroundColor: 'white', // Warna background input putih
+                borderRadius: '4px',
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'white', // Outline putih
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'white', // Outline putih saat hover
+                  },
+                },
+              }}
             />
           </Grid>
           {error && (
             <Grid item xs={12}>
-              <Typography color="error" align="center">
+              <Typography color="error" align="center" sx={{ fontWeight: 'bold' }}>
                 {error}
               </Typography>
             </Grid>
@@ -91,6 +135,7 @@ function Page() {
               variant="contained"
               color="primary"
               onClick={hitungLuas}
+              sx={{ fontWeight: 'bold' }}
             >
               Hitung Luas Permukaan
             </Button>
@@ -101,27 +146,28 @@ function Page() {
               variant="contained"
               color="secondary"
               onClick={hitungVolume}
+              sx={{ fontWeight: 'bold' }}
             >
               Hitung Volume
             </Button>
           </Grid>
           {luas && !error && (
             <Grid item xs={12}>
-              <Typography variant="h6" align="center">
+              <Typography variant="h6" align="center" sx={{ fontWeight: 'bold', color: 'white' }}>
                 Luas Permukaan: {luas}
               </Typography>
             </Grid>
           )}
           {volume && !error && (
             <Grid item xs={12}>
-              <Typography variant="h6" align="center">
+              <Typography variant="h6" align="center" sx={{ fontWeight: 'bold', color: 'white' }}>
                 Volume: {volume}
               </Typography>
             </Grid>
           )}
         </Grid>
       </Paper>
-    </Container>
+    </div>
   );
 }
 
