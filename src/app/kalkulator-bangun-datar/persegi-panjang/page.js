@@ -10,7 +10,7 @@ export default function persegiPanjang() {
       const hitungLuas = () => {
           const p = parseFloat(panjang)
           const l = parseFloat(lebar)
-          if(isNaN(p,l) || p <= 0 || l <= 0){
+          if(isNaN(p) && isNaN(l) || p <= 0 || l <= 0){
             setError('Nilai tidak valid')
             setLuas('')
           }else{
@@ -21,7 +21,7 @@ export default function persegiPanjang() {
       const hitungKeliling = () => {
          const p = parseFloat(panjang)
          const l = parseFloat(lebar)
-         if(isNaN(p,l) || p <= 0 || l <= 0){
+         if(isNaN(p) && isNaN(l) || p <= 0 || l <= 0){
             setError('Nilai tidak valid')
             setKeliling('')
           }else{
@@ -32,6 +32,7 @@ export default function persegiPanjang() {
     return (
       <div className='min-h-screen bg-gray-500 flex flex-col items-center justify-center p-4'>
         <h1 className='text-4xl font-bold mb-8 text-white'>Kalkulator Persegi Panjang</h1>
+        <p className='text-2xl font-bold mb-8 text-white'>Oleh: Ugrasena Wira Nurrahman</p>
         <div className='space-y-4'>
           <input type='number' value={panjang} onChange={(e) => setPanjang(e.target.value)} placeholder='Masukkan Panjang' className='block w-64 p-2 border rounded-lg'/>
           <input type='number' value={lebar} onChange={(e) => setLebar(e.target.value)} placeholder='Masukkan Lebar' className='block w-64 p-2 border rounded-lg'/>
@@ -44,6 +45,7 @@ export default function persegiPanjang() {
           {keliling && <p className='text-xl font-bold text-white'>Keliling : {keliling} </p>}
         </div>
       </div>
+      
     )
 }
 
