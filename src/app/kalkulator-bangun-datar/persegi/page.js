@@ -1,35 +1,46 @@
 'use client'
-import React from 'react'
-import { useState } from 'react'
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import React, { useState } from 'react';
+import { Button, TextField, Card, CardContent, Typography } from '@mui/material';
 
-export default function persegi() {
-    const [sisi,setSisi] = useState('')
-    const [luas,setLuas] = useState('')
-    const [keliling,setKeliling] = useState('')
+export default function Persegi() {
+    const [sisi, setSisi] = useState('');
+    const [luas, setLuas] = useState('');
+    const [keliling, setKeliling] = useState('');
+    
     const hitungLuas = () => {
-        const s = parseFloat(sisi)
-        setLuas(Math.pow(s,2));
-    }
+        const s = parseFloat(sisi);
+        setLuas(s * s);
+    };
+    
     const hitungKeliling = () => {
-        const s = parseFloat(sisi)
-        setKeliling(4*s);
-    }
-  return (
-    <div className='min-h-screen bg-gray-500 flex flex-col items-center justify-center p-4'>
-      <h1 className='text-4xl font-bold mb-8 text-white'>Kalkulator Persegi</h1>
-      <div className='space-y-4'>
-        <TextField variant='filled' id="outlined-basic" label="Outlined" type='number' value={sisi} onChange={(e) => setSisi(e.target.value)}  className='w-64 p-2 border rounded-lg'/>
-        <button onClick={hitungLuas} className='bg-blue-500 text-white p-2 ml-3 rounded-lg hover:bg-blue-600 transition duration-300 '>Hitung Luas
-        </button>
-        <button onClick={hitungKeliling} className='bg-yellow-500 text-white p-2 ml-3 rounded-lg hover:bg-yellow-600 transition duration-300'>Hitung Keliling
-        </button>
-
-        {luas && <p className='text-xl font-bold text-white'>Luas : {luas} </p>}
-        {keliling && <p className='text-xl font-bold text-white'>Keliling : {keliling} </p>}
-      </div>
-    </div>
-  )
+        const s = parseFloat(sisi);
+        setKeliling(4 * s);
+    };
+    
+    return (
+        <div className='min-h-screen bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center p-6'>
+            <Typography variant='h4' className='text-white font-bold mb-6'>Kalkulator Persegi</Typography>
+            <Card className='w-full max-w-sm bg-white shadow-xl rounded-lg'>
+                <CardContent className='flex flex-col items-center space-y-4 p-6'>
+                    <TextField 
+                        variant='outlined' 
+                        label='Masukkan panjang sisi' 
+                        type='number' 
+                        value={sisi} 
+                        onChange={(e) => setSisi(e.target.value)}  
+                        fullWidth
+                    />
+                    <div className='flex w-full justify-between'>
+                        <Button onClick={hitungLuas} variant='contained' color='primary'>Hitung Luas</Button>
+                        <Button onClick={hitungKeliling} variant='contained' color='secondary'>Hitung Keliling</Button>
+                    </div>
+                    {luas && <Typography variant='h6' className='text-gray-800 font-semibold'>Luas: {luas}</Typography>}
+                    {keliling && <Typography variant='h6' className='text-gray-800 font-semibold'>Keliling: {keliling}</Typography>}
+                </CardContent>
+            </Card>
+            <footer className='mt-6 text-white text-sm'>
+                oleh: Arthawan Pratama
+            </footer>
+        </div>
+    );
 }
-
