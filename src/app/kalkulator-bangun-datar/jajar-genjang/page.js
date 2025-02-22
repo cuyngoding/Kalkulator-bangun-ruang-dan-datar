@@ -4,35 +4,36 @@ import { TextField, Typography, Container, Paper, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
 function Page() {
-  const [panjang, setPanjang] = useState('');
-  const [lebar, setLebar] = useState('');
+  const [sisi1, setSisi1] = useState('');
+  const [sisi2, setSisi2] = useState('');
+  const [tinggi, setTinggi] = useState('');
   const [luas, setLuas] = useState('');
   const [keliling, setKeliling] = useState('');
   const [error, setError] = useState('');
 
   const hitungLuas = () => {
-    const p = parseFloat(panjang);
-    const l = parseFloat(lebar);
+    const a = parseFloat(sisi1);
+    const t = parseFloat(tinggi);
 
-    if (isNaN(p) || isNaN(l) || p <= 0 || l <= 0) {
+    if (isNaN(a) || isNaN(t) || a <= 0 || t <= 0) {
       setError('Masukkan nilai panjang dan lebar yang valid.');
       setLuas('');
     } else {
       setError('');
-      setLuas(p * l);
+      setLuas(a * t);
     }
   };
 
   const hitungKeliling = () => {
-    const p = parseFloat(panjang);
-    const l = parseFloat(lebar);
+    const s1 = parseFloat(sisi1);
+    const s2 = parseFloat(sisi2);
 
-    if (isNaN(p) || isNaN(l) || p <= 0 || l <= 0) {
+    if (isNaN(s1) || isNaN(s2) || s1 <= 0 || s2 <= 0) {
       setError('Masukkan nilai panjang dan lebar yang valid.');
       setKeliling('');
     } else {
       setError('');
-      setKeliling(2 * (p + l));
+      setKeliling(2 * (s1 + s2));
     }
   };
 
@@ -65,19 +66,19 @@ function Page() {
             }}
           >
             <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>
-              Kalkulator Persegi Panjang
+              Kalkulator Jajar Genjang
             </Typography>
             <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-              Oleh: Ugrasena Wira Nurrahman
+              Oleh: Muh.Rasya Akbar Bachtiar
             </Typography>
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Panjang"
+                  label="Alas"
                   type="number"
-                  value={panjang}
-                  onChange={(e) => setPanjang(e.target.value)}
+                  value={sisi1}
+                  onChange={(e) => setSisi1(e.target.value)}
                   variant="outlined"
                   InputLabelProps={{ style: { color: 'white' } }} // Label putih
                   InputProps={{
@@ -100,10 +101,36 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Lebar"
+                  label="Sisi Miring"
                   type="number"
-                  value={lebar}
-                  onChange={(e) => setLebar(e.target.value)}
+                  value={sisi2}
+                  onChange={(e) => setSisi2(e.target.value)}
+                  variant="outlined"
+                  InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                  InputProps={{
+                    sx: {
+                      color: 'white', // Warna teks input putih
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat hover
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat fokus
+                      },
+                    },
+                  }}
+                  sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Tinggi"
+                  type="number"
+                  value={tinggi}
+                  onChange={(e) => setTinggi(e.target.value)}
                   variant="outlined"
                   InputLabelProps={{ style: { color: 'white' } }} // Label putih
                   InputProps={{

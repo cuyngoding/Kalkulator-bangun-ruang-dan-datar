@@ -4,35 +4,41 @@ import { TextField, Typography, Container, Paper, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
 function Page() {
-  const [panjang, setPanjang] = useState('');
-  const [lebar, setLebar] = useState('');
+  const [tinggi, setTinggi] = useState('');
+  const [sisi1,setSisi1] = useState('');
+  const [sisi2,setSisi2] = useState('');
+    const [sisi3,setSisi3] = useState('');
+    const [sisi4,setSisi4] = useState('');
   const [luas, setLuas] = useState('');
   const [keliling, setKeliling] = useState('');
   const [error, setError] = useState('');
 
   const hitungLuas = () => {
-    const p = parseFloat(panjang);
-    const l = parseFloat(lebar);
+    const a = parseFloat(sisi1);
+    const b = parseFloat(sisi2);
+    const t = parseFloat(tinggi);
 
-    if (isNaN(p) || isNaN(l) || p <= 0 || l <= 0) {
-      setError('Masukkan nilai panjang dan lebar yang valid.');
+    if (isNaN(a) || isNaN(b) || isNaN(t) || a <= 0 || b <= 0 || t <= 0) {
+      setError('Masukkan nilai alas dan tinggi yang valid.');
       setLuas('');
     } else {
       setError('');
-      setLuas(p * l);
+      setLuas(0.5 * (a + b) * t);
     }
   };
 
   const hitungKeliling = () => {
-    const p = parseFloat(panjang);
-    const l = parseFloat(lebar);
+    const a = parseFloat(sisi1);
+    const b = parseFloat(sisi2);
+    const c = parseFloat(sisi3);
+    const d = parseFloat(sisi4);
 
-    if (isNaN(p) || isNaN(l) || p <= 0 || l <= 0) {
-      setError('Masukkan nilai panjang dan lebar yang valid.');
+    if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d) || a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+      setError('Masukkan nilai sisi yang valid.');
       setKeliling('');
     } else {
       setError('');
-      setKeliling(2 * (p + l));
+      setKeliling(a + b + c + d);
     }
   };
 
@@ -65,19 +71,19 @@ function Page() {
             }}
           >
             <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>
-              Kalkulator Persegi Panjang
+              Kalkulator Trapesium
             </Typography>
             <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-              Oleh: Ugrasena Wira Nurrahman
+              Oleh: Muhammad Abhy
             </Typography>
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Panjang"
+                  label="Sisi 1"
                   type="number"
-                  value={panjang}
-                  onChange={(e) => setPanjang(e.target.value)}
+                  value={sisi1}
+                  onChange={(e) => setSisi1(e.target.value)}
                   variant="outlined"
                   InputLabelProps={{ style: { color: 'white' } }} // Label putih
                   InputProps={{
@@ -100,10 +106,88 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Lebar"
+                  label="Sisi 2"
                   type="number"
-                  value={lebar}
-                  onChange={(e) => setLebar(e.target.value)}
+                  value={sisi2}
+                  onChange={(e) => setSisi2(e.target.value)}
+                  variant="outlined"
+                  InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                  InputProps={{
+                    sx: {
+                      color: 'white', // Warna teks input putih
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat hover
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat fokus
+                      },
+                    },
+                  }}
+                  sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Sisi 3"
+                  type="number"
+                  value={sisi3}
+                  onChange={(e) => setSisi3(e.target.value)}
+                  variant="outlined"
+                  InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                  InputProps={{
+                    sx: {
+                      color: 'white', // Warna teks input putih
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat hover
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat fokus
+                      },
+                    },
+                  }}
+                  sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Sisi 4"
+                  type="number"
+                  value={sisi4}
+                  onChange={(e) => setSisi4(e.target.value)}
+                  variant="outlined"
+                  InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                  InputProps={{
+                    sx: {
+                      color: 'white', // Warna teks input putih
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat hover
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat fokus
+                      },
+                    },
+                  }}
+                  sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Tinggi"
+                  type="number"
+                  value={tinggi}
+                  onChange={(e) => setTinggi(e.target.value)}
                   variant="outlined"
                   InputLabelProps={{ style: { color: 'white' } }} // Label putih
                   InputProps={{
