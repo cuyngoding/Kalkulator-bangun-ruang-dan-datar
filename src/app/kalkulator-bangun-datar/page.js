@@ -1,5 +1,8 @@
 // pages/kalkulator-bangun-datar/index.js
+"use client";
 import Link from 'next/link';
+import Button from '@mui/material/Button';
+
 
 export default function KalkulatorBangunDatar() {
   const bangunDatar = [
