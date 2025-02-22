@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useState } from 'react'
+import { TextField, Button, Typography, Card, CardContent } from '@mui/material'
 export default function persegiPanjang() {
    const [panjang,setPanjang] = useState('')
       const [lebar,setLebar] = useState('')
@@ -30,22 +31,39 @@ export default function persegiPanjang() {
           }
       }
     return (
-      <div className='min-h-screen bg-gray-500 flex flex-col items-center justify-center p-4'>
-        <h1 className='text-4xl font-bold mb-8 text-white'>Kalkulator Persegi Panjang</h1>
-        <p className='text-2xl font-bold mb-8 text-white'>Oleh: Ugrasena Wira Nurrahman</p>
-        <div className='space-y-4'>
-          <input type='number' value={panjang} onChange={(e) => setPanjang(e.target.value)} placeholder='Masukkan Panjang' className='block w-64 p-2 border rounded-lg'/>
-          <input type='number' value={lebar} onChange={(e) => setLebar(e.target.value)} placeholder='Masukkan Lebar' className='block w-64 p-2 border rounded-lg'/>
-          <button onClick={hitungLuas} className='bg-blue-500 text-white p-2 ml-3 rounded-lg hover:bg-blue-600 transition duration-300 '>Hitung Luas
-          </button>
-          <button onClick={hitungKeliling} className='bg-yellow-500 text-white p-2 ml-3 rounded-lg hover:bg-yellow-600 transition duration-300'>Hitung Keliling
-          </button>
-  
-          {luas && <p className='text-xl font-bold text-white'>Luas : {luas} </p>}
-          {keliling && <p className='text-xl font-bold text-white'>Keliling : {keliling} </p>}
-        </div>
-      </div>
-      
+        <div className='min-h-screen bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center p-6'>
+        <Typography variant='h4' className='text-white font-bold mb-6'>Kalkulator Persegi Panjang</Typography>
+        <Card className='w-full max-w-sm bg-white shadow-xl rounded-lg'>
+            <CardContent className='flex flex-col items-center space-y-4 p-6'>
+                <TextField 
+                    variant='outlined' 
+                    label='Masukkan panjang' 
+                    type='number' 
+                    value={panjang}
+                    onChange={(e) => setPanjang(e.target.value)}  
+                    fullWidth
+                />
+                <TextField 
+                    variant='outlined' 
+                    label='Masukkan lebar' 
+                    type='number' 
+                    value={lebar}
+
+                    onChange={(e) => setLebar(e.target.value)}  
+                    fullWidth
+                />
+                <div className='flex w-full justify-between'>
+                    <Button onClick={hitungLuas} variant='contained' color='primary'>Hitung Luas</Button>
+                    <Button onClick={hitungKeliling} variant='contained' color='secondary'>Hitung Keliling</Button>
+                </div>
+                {luas && <Typography variant='h6' className='text-gray-800 font-semibold'>Luas: {luas}</Typography>}
+                {keliling && <Typography variant='h6' className='text-gray-800 font-semibold'>Keliling: {keliling}</Typography>}
+            </CardContent>
+        </Card>
+        <footer className='mt-6 text-white text-sm'>
+            oleh: Ugrasena Wira Nurrahman
+        </footer>
+    </div>
     )
 }
 
