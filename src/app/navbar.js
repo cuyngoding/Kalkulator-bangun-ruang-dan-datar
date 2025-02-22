@@ -16,6 +16,10 @@ function Navbar() {
   const handleBack = () => {
     router.back();
   };
+  const handleHome = () => {
+    router.push('/');
+  }
+  
 
   return (
     <Box sx={{ flexGrow: 1 }} >
@@ -38,6 +42,7 @@ function Navbar() {
             color="inherit"
             aria-label="calculator"
             sx={{ mr: 2 }}
+            onClick={handleHome} // Panggil fungsi handleHome saat tombol diklik
           >
             <CalculateIcon />
           </IconButton>

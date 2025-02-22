@@ -61,7 +61,7 @@ function Page() {
           elevation={10}
           sx={{
             padding: 4,
-            backgroundColor: 'rgba(0,102, 255, 0.2)', // Transparan
+            backgroundColor: 'rgba(128, 128, 128, 0.5)', // Transparan
             backdropFilter: 'blur(10px)', // Efek blur
             borderRadius: '10px',
             color: 'white',
@@ -82,7 +82,22 @@ function Page() {
                 value={panjang}
                 onChange={(e) => setPanjang(e.target.value)}
                 variant="outlined"
-                sx={{ backgroundColor: 'white', borderRadius: '4px' }}
+                 InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                  InputProps={{
+                    sx: {
+                      color: 'white', // Warna teks input putih
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat hover
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'black', // Outline putih saat fokus
+                      },
+                    },
+                  }}
+                  sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -93,7 +108,22 @@ function Page() {
                 value={lebar}
                 onChange={(e) => setLebar(e.target.value)}
                 variant="outlined"
-                sx={{ backgroundColor: 'white', borderRadius: '4px' }}
+                InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                InputProps={{
+                  sx: {
+                    color: 'white', // Warna teks input putih
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'black', // Outline putih
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'black', // Outline putih saat hover
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'black', // Outline putih saat fokus
+                    },
+                  },
+                }}
+                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -104,7 +134,22 @@ function Page() {
                 value={tinggi}
                 onChange={(e) => setTinggi(e.target.value)}
                 variant="outlined"
-                sx={{ backgroundColor: 'white', borderRadius: '4px' }}
+                InputLabelProps={{ style: { color: 'white' } }} // Label putih
+                InputProps={{
+                  sx: {
+                    color: 'white', // Warna teks input putih
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'black', // Outline putih
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'black', // Outline putih saat hover
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'black', // Outline putih saat fokus
+                    },
+                  },
+                }}
+                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
               />
             </Grid>
             {error && (
