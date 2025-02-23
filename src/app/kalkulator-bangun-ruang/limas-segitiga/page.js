@@ -10,7 +10,6 @@ function LimasSegitiga() {
   const [luasSisi1, setLuasSisi1] = useState('');
   const [luasSisi2, setLuasSisi2] = useState('');
   const [luasSisi3, setLuasSisi3] = useState('');
-  const [luasSisi4, setLuasSisi4] = useState('');
   const [luasPermukaan, setLuasPermukaan] = useState('');
   const [volume, setVolume] = useState('');
   const [error, setError] = useState('');
@@ -19,14 +18,15 @@ function LimasSegitiga() {
     const ls1 = parseFloat(luasSisi1);
     const ls2 = parseFloat(luasSisi2);
     const ls3 = parseFloat(luasSisi3);
-    const ls4 = parseFloat(luasSisi4);
 
-    if (isNaN(ls1) || isNaN(ls2) || isNaN(ls3) || isNaN(ls4) || ls1 <= 0 || ls2 <= 0 || ls3 <= 0 || ls4 <= 0) {
+    if (isNaN(ls1) || isNaN(ls2) || isNaN(ls3) || ls1 <= 0 || ls2 <= 0 || ls3 <= 0) {
       setError('Masukkan nilai luas sisi yang valid.');
       setLuasPermukaan('');
     } else {
       setError('');
-      setLuasPermukaan(ls1 + ls2 + ls3 + ls4);
+      // Luas permukaan = luas alas + luas sisi 1 + luas sisi 2 + luas sisi 3
+      const luasAlas = (parseFloat(alas) * parseFloat(tinggiSegitiga)) / 2;
+      setLuasPermukaan(luasAlas + ls1 + ls2 + ls3);
     }
   };
 
@@ -40,14 +40,16 @@ function LimasSegitiga() {
       setVolume('');
     } else {
       setError('');
+      // Luas alas segitiga
       const luasAlas = (a * tSegitiga) / 2;
+      // Volume limas segitiga
       setVolume((1 / 3) * luasAlas * tLimas);
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative bg-cover bg-center">
-       <video
+      <video
         autoPlay
         loop
         muted
@@ -62,9 +64,9 @@ function LimasSegitiga() {
       <motion.div className="relative z-10 w-full max-w-md" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(13, 147, 145, 0.676)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Limas Segitiga</Typography>
-           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-                      Oleh: Davique Ananda Perwira
-                    </Typography>
+          <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
+            Oleh: Davique Ananda Perwira
+          </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <TextField
@@ -108,7 +110,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 1 (cm)"
+                label="Luas Sisi 1 (cm²)"
                 type="number"
                 value={luasSisi1}
                 onChange={(e) => setLuasSisi1(e.target.value)}
@@ -121,7 +123,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 2 (cm)"
+                label="Luas Sisi 2 (cm²)"
                 type="number"
                 value={luasSisi2}
                 onChange={(e) => setLuasSisi2(e.target.value)}
@@ -134,23 +136,10 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 3 (cm)"
+                label="Luas Sisi 3 (cm²)"
                 type="number"
                 value={luasSisi3}
                 onChange={(e) => setLuasSisi3(e.target.value)}
-                variant="outlined"
-                InputLabelProps={{ style: { color: 'white' } }}
-                InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
-                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Luas Sisi 4 (cm)"
-                type="number"
-                value={luasSisi4}
-                onChange={(e) => setLuasSisi4(e.target.value)}
                 variant="outlined"
                 InputLabelProps={{ style: { color: 'white' } }}
                 InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}

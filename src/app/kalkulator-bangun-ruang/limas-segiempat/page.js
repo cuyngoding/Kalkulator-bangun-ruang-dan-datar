@@ -18,12 +18,17 @@ function LimasSegiEmpat() {
       setLuasPermukaan('');
     } else {
       setError('');
-      const luasSegitiga = 2 * (s * t / 2);
+      // Tinggi segitiga sisi tegak (dianggap sama dengan tinggi limas)
+      const tSegitiga = t;
+      // Luas alas (persegi)
       const luasAlas = s * s;
-      setLuasPermukaan(luasAlas + luasSegitiga);
+      // Luas empat sisi tegak (segitiga)
+      const luasSisiTegak = 4 * (0.5 * s * tSegitiga);
+      // Total luas permukaan
+      setLuasPermukaan(luasAlas + luasSisiTegak);
     }
   };
-
+  
   const hitungVolume = () => {
     const s = parseFloat(sisiAlas);
     const t = parseFloat(tinggi);
@@ -32,7 +37,8 @@ function LimasSegiEmpat() {
       setVolume('');
     } else {
       setError('');
-      setVolume((1/3) * s * s * t);
+      // Volume limas segi empat
+      setVolume((1 / 3) * s * s * t);
     }
   };
 
