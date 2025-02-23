@@ -185,14 +185,14 @@ function LimasSegitiga() {
             {luasPermukaan && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Luas Permukaan: {luasPermukaan.toFixed(2)}
+                  Luas Permukaan: {`${luasPermukaan.toFixed(2)} cm²`}
                 </motion.div>
               </Grid>
             )}
             {volume && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Volume: {volume.toFixed(2)}
+                  Volume: {`${volume.toFixed(2)} cm³`}
                 </motion.div>
               </Grid>
             )}

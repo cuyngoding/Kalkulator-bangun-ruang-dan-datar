@@ -23,7 +23,7 @@ function Page() {
       setLuas('');
     } else {
       setError('');
-      setLuas(0.5 * (a + b) * t);
+      setLuas( (a + b)/2 * t);
     }
   };
 
