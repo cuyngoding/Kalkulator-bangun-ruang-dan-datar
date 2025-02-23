@@ -29,7 +29,7 @@ function LimasSegitiga() {
       setLuasPermukaan('');
     } else {
       setError('');
-      const luasAlas = 0.5 * a * tSegitiga;
+      const luasAlas = (a * tSegitiga)/2;
       const luasSelimut = ls1 + ls2 + ls3;
       setLuasPermukaan(luasAlas + luasSelimut);
     }
