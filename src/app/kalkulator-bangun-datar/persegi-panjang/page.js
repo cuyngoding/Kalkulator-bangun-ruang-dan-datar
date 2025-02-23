@@ -158,7 +158,7 @@ function Page() {
                     transition={{ duration: 0.5 }}
                     className="text-center text-white font-bold text-lg"
                   >
-                    Luas: {luas.toFixed(2)}
+                    Luas: {`${luas.toFixed(2)} cm²`}
                   </motion.div>
                 </Grid>
               )}
@@ -170,7 +170,7 @@ function Page() {
                     transition={{ duration: 0.5 }}
                     className="text-center text-white font-bold text-lg"
                   >
-                    Keliling: {keliling.toFixed(2)}
+                    Keliling: {`${keliling.toFixed(2)} cm`}
                   </motion.div>
                 </Grid>
               )}

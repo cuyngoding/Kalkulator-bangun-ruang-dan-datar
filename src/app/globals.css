@@ -19,3 +19,8 @@ body {
   background: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+color {
+  background-color: rgba(51, 247, 7, 0.445);
+}

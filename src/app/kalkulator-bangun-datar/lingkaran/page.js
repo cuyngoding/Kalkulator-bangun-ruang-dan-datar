@@ -35,7 +35,7 @@ function Lingkaran() {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative bg-cover bg-center" style={{ backgroundImage: "url('/ruang.jpg')" }}>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <motion.div className="relative z-10 w-full max-w-md" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(128, 128, 128, 0.5)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
+        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(210, 31, 25, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Lingkaran</Typography>
           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                         Oleh: Nuraqilah
@@ -72,14 +72,14 @@ function Lingkaran() {
             {luas && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Luas: {luas.toFixed(2)}
+                  Luas: {`${luas.toFixed(2)} cm²`}
                 </motion.div>
               </Grid>
             )}
             {keliling && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Keliling: {keliling.toFixed(2)}
+                  Keliling: {`${keliling.toFixed(2)} cm`}
                 </motion.div>
               </Grid>
             )}

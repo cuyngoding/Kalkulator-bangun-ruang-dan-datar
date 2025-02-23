@@ -53,7 +53,7 @@ function Persegi() {
           elevation={10}
           sx={{
             padding: 4,
-            backgroundColor: 'rgba(128, 128, 128, 0.5)', // Transparan
+            backgroundColor: 'rgba(25, 121, 210, 0.445)', // Transparan
             backdropFilter: 'blur(10px)', // Efek blur
             borderRadius: '10px',
             color: 'white',
@@ -127,7 +127,7 @@ function Persegi() {
                   transition={{ duration: 0.5 }}
                   className="text-center text-white font-bold text-lg"
                 >
-                  Luas: {luas.toFixed(2)}
+                  Luas: {`${luas.toFixed(2)} cm²`}
                 </motion.div>
               </Grid>
             )}
@@ -139,7 +139,7 @@ function Persegi() {
                   transition={{ duration: 0.5 }}
                   className="text-center text-white font-bold text-lg"
                 >
-                  Keliling: {keliling.toFixed(2)}
+                  Keliling: {`${keliling.toFixed(2)} cm`}
                 </motion.div>
               </Grid>
             )}
