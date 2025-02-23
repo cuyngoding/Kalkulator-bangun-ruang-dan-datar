@@ -3,51 +3,65 @@ import React, { useState } from 'react';
 import { TextField, Typography, Paper, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
-function Kerucut() {
-  const [jariJari, setJariJari] = useState('');
-  const [tinggi, setTinggi] = useState('');
-  const [garisPelukis, setGarisPelukis] = useState('');
-  const [luasPermukaan, setLuasPermukaan] = useState('');
+function PrismaSegitiga() {
+  const [sisi1, setSisi1] = useState('');
+  const [sisi2, setSisi2] = useState('');
+  const [sisi3, setSisi3] = useState('');
+  const [alas, setAlas] = useState('');
+  const [tinggiSegitiga, setTinggiSegitiga] = useState('');
+  const [tinggiPrisma, setTinggiPrisma] = useState('');
   const [luasSelimut, setLuasSelimut] = useState('');
+  const [luasPermukaan, setLuasPermukaan] = useState('');
   const [volume, setVolume] = useState('');
   const [error, setError] = useState('');
 
   const hitungLuasSelimut = () => {
-    const r = parseFloat(jariJari);
-    const s = parseFloat(garisPelukis);
+    const s1 = parseFloat(sisi1);
+    const s2 = parseFloat(sisi2);
+    const s3 = parseFloat(sisi3);
+    const t = parseFloat(tinggiPrisma);
 
-    if (isNaN(r) || isNaN(s) || r <= 0 || s <= 0) {
-      setError('Masukkan nilai jari-jari dan garis pelukis yang valid.');
+    if (isNaN(s1) || isNaN(s2) || isNaN(s3) || isNaN(t) || s1 <= 0 || s2 <= 0 || s3 <= 0 || t <= 0) {
+      setError('Masukkan nilai sisi dan tinggi prisma yang valid.');
       setLuasSelimut('');
     } else {
       setError('');
-      setLuasSelimut(Math.PI * r * s);
+      const kelilingAlas = s1 + s2 + s3;
+      setLuasSelimut(kelilingAlas * t);
     }
   };
 
   const hitungLuasPermukaan = () => {
-    const r = parseFloat(jariJari);
-    const s = parseFloat(garisPelukis);
+    const s1 = parseFloat(sisi1);
+    const s2 = parseFloat(sisi2);
+    const s3 = parseFloat(sisi3);
+    const a = parseFloat(alas);
+    const tSegitiga = parseFloat(tinggiSegitiga);
+    const tPrisma = parseFloat(tinggiPrisma);
 
-    if (isNaN(r) || isNaN(s) || r <= 0 || s <= 0) {
-      setError('Masukkan nilai jari-jari dan garis pelukis yang valid.');
+    if (isNaN(s1) || isNaN(s2) || isNaN(s3) || isNaN(a) || isNaN(tSegitiga) || isNaN(tPrisma) || s1 <= 0 || s2 <= 0 || s3 <= 0 || a <= 0 || tSegitiga <= 0 || tPrisma <= 0) {
+      setError('Masukkan nilai sisi, alas, tinggi segitiga, dan tinggi prisma yang valid.');
       setLuasPermukaan('');
     } else {
       setError('');
-      setLuasPermukaan(Math.PI * r * s + Math.PI * r * r);
+      const kelilingAlas = s1 + s2 + s3;
+      const luasAlas = (a * tSegitiga) / 2;
+      setLuasPermukaan(kelilingAlas * tPrisma + 2 * luasAlas);
     }
   };
 
   const hitungVolume = () => {
-    const r = parseFloat(jariJari);
-    const t = parseFloat(tinggi);
+    const a = parseFloat(alas);
+    const tSegitiga = parseFloat(tinggiSegitiga);
+    const tPrisma = parseFloat(tinggiPrisma);
 
-    if (isNaN(r) || isNaN(t) || r <= 0 || t <= 0) {
-      setError('Masukkan nilai jari-jari dan tinggi yang valid.');
+    if (isNaN(a) || isNaN(tSegitiga) || isNaN(tPrisma) || a <= 0 || tSegitiga <= 0 || tPrisma <= 0) {
+      setError('Masukkan nilai alas, tinggi segitiga, dan tinggi prisma yang valid.');
       setVolume('');
     } else {
       setError('');
-      setVolume((1 / 3) * Math.PI * r * r * t);
+      const luasAlas = (a * tSegitiga) / 2;
+      setVolume(luasAlas * tPrisma);
     }
   };
 
@@ -55,19 +69,19 @@ function Kerucut() {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative bg-cover bg-center" style={{ backgroundImage: "url('/ruang.jpg')" }}>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <motion.div className="relative z-10 w-full max-w-md" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(51, 247, 7, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
-          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Kerucut</Typography>
-          <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-            Oleh: Muhammad Abhy
-          </Typography>
+        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(106, 6, 255, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
+          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Prisma Segitiga</Typography>
+            <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
+                                Oleh: Muh.Rasya Akbar Bachtiar
+                              </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Jari-Jari"
+                label="Sisi 1"
                 type="number"
-                value={jariJari}
-                onChange={(e) => setJariJari(e.target.value)}
+                value={sisi1}
+                onChange={(e) => setSisi1(e.target.value)}
                 variant="outlined"
                 InputLabelProps={{ style: { color: 'white' } }}
                 InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
@@ -77,10 +91,10 @@ function Kerucut() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi"
+                label="Sisi 2"
                 type="number"
-                value={tinggi}
-                onChange={(e) => setTinggi(e.target.value)}
+                value={sisi2}
+                onChange={(e) => setSisi2(e.target.value)}
                 variant="outlined"
                 InputLabelProps={{ style: { color: 'white' } }}
                 InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
@@ -90,10 +104,49 @@ function Kerucut() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Garis Pelukis"
+                label="Sisi 3"
                 type="number"
-                value={garisPelukis}
-                onChange={(e) => setGarisPelukis(e.target.value)}
+                value={sisi3}
+                onChange={(e) => setSisi3(e.target.value)}
+                variant="outlined"
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
+                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Alas Segitiga"
+                type="number"
+                value={alas}
+                onChange={(e) => setAlas(e.target.value)}
+                variant="outlined"
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
+                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Tinggi Segitiga"
+                type="number"
+                value={tinggiSegitiga}
+                onChange={(e) => setTinggiSegitiga(e.target.value)}
+                variant="outlined"
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
+                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Tinggi Prisma"
+                type="number"
+                value={tinggiPrisma}
+                onChange={(e) => setTinggiPrisma(e.target.value)}
                 variant="outlined"
                 InputLabelProps={{ style: { color: 'white' } }}
                 InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
@@ -138,21 +191,21 @@ function Kerucut() {
             {luasSelimut && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Luas Selimut: {`${luasSelimut.toFixed(2)} cm²`}
+                  Luas Selimut: {luasSelimut.toFixed(2)}
                 </motion.div>
               </Grid>
             )}
             {luasPermukaan && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Luas Permukaan: {`${luasPermukaan.toFixed(2)} cm²`}
+                  Luas Permukaan: {luasPermukaan.toFixed(2)}
                 </motion.div>
               </Grid>
             )}
             {volume && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Volume: {`${volume.toFixed(2)} cm³`}
+                  Volume: {volume.toFixed(2)}
                 </motion.div>
               </Grid>
             )}
@@ -163,4 +216,4 @@ function Kerucut() {
   );
 }
 
-export default Kerucut;
+export default PrismaSegitiga;

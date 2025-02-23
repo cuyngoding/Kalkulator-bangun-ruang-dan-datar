@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import { TextField, Typography, Paper, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
-function Kerucut() {
+function Tabung() {
   const [jariJari, setJariJari] = useState('');
   const [tinggi, setTinggi] = useState('');
-  const [garisPelukis, setGarisPelukis] = useState('');
   const [luasPermukaan, setLuasPermukaan] = useState('');
   const [luasSelimut, setLuasSelimut] = useState('');
   const [volume, setVolume] = useState('');
@@ -14,27 +13,27 @@ function Kerucut() {
 
   const hitungLuasSelimut = () => {
     const r = parseFloat(jariJari);
-    const s = parseFloat(garisPelukis);
+    const t = parseFloat(tinggi);
 
-    if (isNaN(r) || isNaN(s) || r <= 0 || s <= 0) {
-      setError('Masukkan nilai jari-jari dan garis pelukis yang valid.');
+    if (isNaN(r) || isNaN(t) || r <= 0 || t <= 0) {
+      setError('Masukkan nilai jari-jari dan tinggi yang valid.');
       setLuasSelimut('');
     } else {
       setError('');
-      setLuasSelimut(Math.PI * r * s);
+      setLuasSelimut(2 * Math.PI * r * t);
     }
   };
 
   const hitungLuasPermukaan = () => {
     const r = parseFloat(jariJari);
-    const s = parseFloat(garisPelukis);
+    const t = parseFloat(tinggi);
 
-    if (isNaN(r) || isNaN(s) || r <= 0 || s <= 0) {
-      setError('Masukkan nilai jari-jari dan garis pelukis yang valid.');
+    if (isNaN(r) || isNaN(t) || r <= 0 || t <= 0) {
+      setError('Masukkan nilai jari-jari dan tinggi yang valid.');
       setLuasPermukaan('');
     } else {
       setError('');
-      setLuasPermukaan(Math.PI * r * s + Math.PI * r * r);
+      setLuasPermukaan(2 * Math.PI * r * t + 2 * Math.PI * r * r);
     }
   };
 
@@ -47,7 +46,7 @@ function Kerucut() {
       setVolume('');
     } else {
       setError('');
-      setVolume((1 / 3) * Math.PI * r * r * t);
+      setVolume(Math.PI * r * r * t);
     }
   };
 
@@ -55,10 +54,10 @@ function Kerucut() {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative bg-cover bg-center" style={{ backgroundImage: "url('/ruang.jpg')" }}>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <motion.div className="relative z-10 w-full max-w-md" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(51, 247, 7, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
-          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Kerucut</Typography>
+        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(255, 6, 247, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
+          <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Tabung</Typography>
           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-            Oleh: Muhammad Abhy
+            Oleh: Andi Muhammad Afzal Mirza
           </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12}>
@@ -81,19 +80,6 @@ function Kerucut() {
                 type="number"
                 value={tinggi}
                 onChange={(e) => setTinggi(e.target.value)}
-                variant="outlined"
-                InputLabelProps={{ style: { color: 'white' } }}
-                InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
-                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Garis Pelukis"
-                type="number"
-                value={garisPelukis}
-                onChange={(e) => setGarisPelukis(e.target.value)}
                 variant="outlined"
                 InputLabelProps={{ style: { color: 'white' } }}
                 InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
@@ -163,4 +149,4 @@ function Kerucut() {
   );
 }
 
-export default Kerucut;
+export default Tabung;
