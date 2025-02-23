@@ -58,7 +58,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Alas Segitiga"
+                label="Alas Segitiga (cm)"
                 type="number"
                 value={alas}
                 onChange={(e) => setAlas(e.target.value)}
@@ -71,7 +71,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi Segitiga"
+                label="Tinggi Segitiga (cm)"
                 type="number"
                 value={tinggiSegitiga}
                 onChange={(e) => setTinggiSegitiga(e.target.value)}
@@ -84,7 +84,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi Limas"
+                label="Tinggi Limas (cm)"
                 type="number"
                 value={tinggiLimas}
                 onChange={(e) => setTinggiLimas(e.target.value)}
@@ -97,7 +97,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 1"
+                label="Luas Sisi 1 (cm)"
                 type="number"
                 value={luasSisi1}
                 onChange={(e) => setLuasSisi1(e.target.value)}
@@ -110,7 +110,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 2"
+                label="Luas Sisi 2 (cm)"
                 type="number"
                 value={luasSisi2}
                 onChange={(e) => setLuasSisi2(e.target.value)}
@@ -123,7 +123,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 3"
+                label="Luas Sisi 3 (cm)"
                 type="number"
                 value={luasSisi3}
                 onChange={(e) => setLuasSisi3(e.target.value)}
@@ -136,7 +136,7 @@ function LimasSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Luas Sisi 4"
+                label="Luas Sisi 4 (cm)"
                 type="number"
                 value={luasSisi4}
                 onChange={(e) => setLuasSisi4(e.target.value)}

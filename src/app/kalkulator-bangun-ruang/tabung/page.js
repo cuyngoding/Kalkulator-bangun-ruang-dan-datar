@@ -63,7 +63,7 @@ function Tabung() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Jari-Jari"
+                label="Jari-Jari (cm)"
                 type="number"
                 value={jariJari}
                 onChange={(e) => setJariJari(e.target.value)}
@@ -76,7 +76,7 @@ function Tabung() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi"
+                label="Tinggi (cm)"
                 type="number"
                 value={tinggi}
                 onChange={(e) => setTinggi(e.target.value)}

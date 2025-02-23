@@ -78,7 +78,7 @@ function PrismaSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi 1"
+                label="Sisi 1 (cm)"
                 type="number"
                 value={sisi1}
                 onChange={(e) => setSisi1(e.target.value)}
@@ -91,7 +91,7 @@ function PrismaSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi 2"
+                label="Sisi 2 (cm)"
                 type="number"
                 value={sisi2}
                 onChange={(e) => setSisi2(e.target.value)}
@@ -104,7 +104,7 @@ function PrismaSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi 3"
+                label="Sisi 3 (cm)"
                 type="number"
                 value={sisi3}
                 onChange={(e) => setSisi3(e.target.value)}
@@ -117,7 +117,7 @@ function PrismaSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Alas Segitiga"
+                label="Alas Segitiga (cm)"
                 type="number"
                 value={alas}
                 onChange={(e) => setAlas(e.target.value)}
@@ -130,7 +130,7 @@ function PrismaSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi Segitiga"
+                label="Tinggi Segitiga (cm)"
                 type="number"
                 value={tinggiSegitiga}
                 onChange={(e) => setTinggiSegitiga(e.target.value)}
@@ -143,7 +143,7 @@ function PrismaSegitiga() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi Prisma"
+                label="Tinggi Prisma (cm)"
                 type="number"
                 value={tinggiPrisma}
                 onChange={(e) => setTinggiPrisma(e.target.value)}

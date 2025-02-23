@@ -81,7 +81,7 @@ function LimasSegiEmpat() {
               </motion.button>
             </Grid>
             <Grid item xs={12} md={6}>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full bg-green-500 text-white font-bold py-4 px-3 rounded-lg text-sm" onClick={hitungVolume}>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full bg-green-500 text-white font-bold py-6 px-3 rounded-lg text-sm" onClick={hitungVolume}>
                 Hitung Volume
               </motion.button>
             </Grid>

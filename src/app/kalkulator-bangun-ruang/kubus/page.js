@@ -71,7 +71,7 @@ function Page() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Rusuk"
+                label="Rusuk (cm)"
                 type="number"
                 value={rusuk}
                 onChange={(e) => setRusuk(e.target.value)}

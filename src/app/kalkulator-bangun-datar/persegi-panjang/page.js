@@ -74,7 +74,7 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Panjang"
+                  label="Panjang (cm)"
                   type="number"
                   value={panjang}
                   onChange={(e) => setPanjang(e.target.value)}
@@ -100,7 +100,7 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Lebar"
+                  label="Lebar (cm)"
                   type="number"
                   value={lebar}
                   onChange={(e) => setLebar(e.target.value)}

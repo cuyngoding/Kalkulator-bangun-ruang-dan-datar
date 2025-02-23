@@ -69,7 +69,7 @@ function Persegi() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi"
+                label="Sisi (cm)"
                 type="number"
                 value={sisi}
                 onChange={(e) => setSisi(e.target.value)}

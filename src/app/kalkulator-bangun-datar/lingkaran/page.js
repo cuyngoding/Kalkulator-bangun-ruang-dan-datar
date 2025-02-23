@@ -44,7 +44,7 @@ function Lingkaran() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Jari-Jari"
+                label="Jari-Jari (cm)"
                 type="number"
                 value={jariJari}
                 onChange={(e) => setJariJari(e.target.value)}
@@ -72,14 +72,14 @@ function Lingkaran() {
             {luas && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Luas: {${luas.toFixed(2)} cm²}
+                  Luas: {`${luas.toFixed(2)} cm²`}
                 </motion.div>
               </Grid>
             )}
             {keliling && !error && (
               <Grid item xs={12}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center text-white font-bold text-lg">
-                  Keliling: {${keliling.toFixed(2)} cm}
+                  Keliling: {`${keliling.toFixed(2)} cm`}
                 </motion.div>
               </Grid>
             )}

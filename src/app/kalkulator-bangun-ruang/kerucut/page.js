@@ -64,7 +64,7 @@ function Kerucut() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Jari-Jari"
+                label="Jari-Jari (cm)"
                 type="number"
                 value={jariJari}
                 onChange={(e) => setJariJari(e.target.value)}
@@ -77,7 +77,7 @@ function Kerucut() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Tinggi"
+                label="Tinggi (cm)"
                 type="number"
                 value={tinggi}
                 onChange={(e) => setTinggi(e.target.value)}
@@ -90,7 +90,7 @@ function Kerucut() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Garis Pelukis"
+                label="Garis Pelukis (cm)"
                 type="number"
                 value={garisPelukis}
                 onChange={(e) => setGarisPelukis(e.target.value)}

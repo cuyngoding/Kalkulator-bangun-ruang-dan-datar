@@ -49,7 +49,7 @@ function LayangLayang() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Diagonal 1"
+                label="Diagonal 1 (cm)"
                 type="number"
                 value={diagonal1}
                 onChange={(e) => setDiagonal1(e.target.value)}
@@ -62,7 +62,7 @@ function LayangLayang() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Diagonal 2"
+                label="Diagonal 2 (cm)"
                 type="number"
                 value={diagonal2}
                 onChange={(e) => setDiagonal2(e.target.value)}
@@ -75,7 +75,7 @@ function LayangLayang() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi 1"
+                label="Sisi 1 (cm)"
                 type="number"
                 value={sisi1}
                 onChange={(e) => setSisi1(e.target.value)}
@@ -88,7 +88,7 @@ function LayangLayang() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi 2"
+                label="Sisi 2 (cm)"
                 type="number"
                 value={sisi2}
                 onChange={(e) => setSisi2(e.target.value)}

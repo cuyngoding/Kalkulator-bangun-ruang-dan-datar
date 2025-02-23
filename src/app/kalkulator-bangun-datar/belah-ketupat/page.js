@@ -47,7 +47,7 @@ function belahKetupat() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Diagonal 1"
+                label="Diagonal 1 (cm)"
                 type="number"
                 value={diagonal1}
                 onChange={(e) => setDiagonal1(e.target.value)}
@@ -60,7 +60,7 @@ function belahKetupat() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Diagonal 2"
+                label="Diagonal 2 (cm)"
                 type="number"
                 value={diagonal2}
                 onChange={(e) => setDiagonal2(e.target.value)}
@@ -73,7 +73,7 @@ function belahKetupat() {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Sisi"
+                label="Sisi (cm)"
                 type="number"
                 value={sisi}
                 onChange={(e) => setSisi(e.target.value)}

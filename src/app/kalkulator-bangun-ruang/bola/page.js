@@ -55,7 +55,7 @@ function Page() {
           elevation={10}
           sx={{
             padding: 4,
-            backgroundColor: 'rgba(247, 7, 7, 0.445)', // Transparan
+            backgroundColor: 'rgba(244, 129, 14, 0.614)', // Transparan
             backdropFilter: 'blur(10px)', // Efek blur
             borderRadius: '10px',
             color: 'white',
@@ -65,13 +65,13 @@ function Page() {
             Kalkulator Bola
           </Typography>
           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-            Oleh: Nuraqilah
+            Oleh: Christian Bagaskara Triatmono
           </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Jari-jari"
+                label="Jari-jari (cm)"
                 type="number"
                 value={jariJari}
                 onChange={(e) => setJarijari(e.target.value)}

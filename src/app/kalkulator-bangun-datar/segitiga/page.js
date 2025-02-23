@@ -77,7 +77,7 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Sisi 1"
+                  label="Sisi 1 (cm)"
                   type="number"
                   value={sisi1}
                   onChange={(e) => setSisi1(e.target.value)}
@@ -103,7 +103,7 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Sisi 2"
+                  label="Sisi 2 (cm)"
                   type="number"
                   value={sisi2}
                   onChange={(e) => setSisi2(e.target.value)}
@@ -129,7 +129,7 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Sisi 3"
+                  label="Sisi 3 (cm)"
                   type="number"
                   value={sisi3}
                   onChange={(e) => setSisi3(e.target.value)}
@@ -155,7 +155,7 @@ function Page() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Tinggi"
+                  label="Tinggi (cm)"
                   type="number"
                   value={tinggi}
                   onChange={(e) => setTinggi(e.target.value)}
