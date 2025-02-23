@@ -52,10 +52,22 @@ function Kerucut() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 relative bg-cover bg-center" style={{ backgroundImage: "url('/ruang.jpg')" }}>
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 relative bg-cover bg-center">
+       <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/ruang.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay transparan */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      {/* Overlay transparan */}
       <motion.div className="relative z-10 w-full max-w-md" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(51, 247, 7, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
+        <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(13, 80, 147, 0.6)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Kerucut</Typography>
           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
             Oleh: Muhammad Abhy

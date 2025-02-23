@@ -16,21 +16,24 @@ export default function KalkulatorBangunRuang() {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center p-4 relative"
-      style={{
-        backgroundImage: "url('/ruang.jpg')", // Gambar background
-        backgroundSize: 'cover', // Menutupi seluruh layar
-        backgroundPosition: 'center', // Posisi gambar di tengah
-      }}
-    >
+      className="min-h-screen flex flex-col items-center justify-center p-4 relative">
+     <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/ruang.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       {/* Overlay transparan */}
-      <div
-        className="absolute inset-0 bg-black bg-opacity-50" // Efek transparansi
-      ></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      {/* Overlay transparan */}
 
       {/* Judul dengan animasi */}
       <motion.h1
-        className="text-5xl font-bold mb-10 text-white z-10 font-mono"
+        className="text-5xl font-bold mb-10 text-white z-10 font-mono text-stroke-sm md:text-stroke-lg drop-shadow-[1px_3px_0_black]"
         initial={{ opacity: 0, y: -50 }} // Animasi awal
         animate={{ opacity: 1, y: 0 }} // Animasi saat muncul
         transition={{ duration: 1, ease: "easeOut" }} // Animasi lebih smooth

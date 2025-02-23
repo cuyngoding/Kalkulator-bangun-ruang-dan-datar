@@ -33,16 +33,20 @@ function Persegi() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col items-center justify-center p-4 relative"
-      style={{
-        backgroundImage: "url('/ruang.jpg')", // Ganti dengan path gambar yang sesuai
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+      className="min-h-screen flex flex-col items-center justify-center p-4 relative">
+     <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/background_math_datar.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       {/* Overlay transparan */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
+      {/* Overlay transparan */}
       <motion.div
         className="relative z-10 w-full max-w-md"
         initial={{ opacity: 0, y: -30 }}
@@ -53,7 +57,7 @@ function Persegi() {
           elevation={10}
           sx={{
             padding: 4,
-            backgroundColor: 'rgba(25, 121, 210, 0.445)', // Transparan
+            backgroundColor: 'rgb(29, 92, 17)', // Transparan
             backdropFilter: 'blur(10px)', // Efek blur
             borderRadius: '10px',
             color: 'white',
