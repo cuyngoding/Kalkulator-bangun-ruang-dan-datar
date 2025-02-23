@@ -10,28 +10,23 @@ function LimasSegitiga() {
   const [luasSisi1, setLuasSisi1] = useState('');
   const [luasSisi2, setLuasSisi2] = useState('');
   const [luasSisi3, setLuasSisi3] = useState('');
+  const [luasSisi4, setLuasSisi4] = useState('');
   const [luasPermukaan, setLuasPermukaan] = useState('');
   const [volume, setVolume] = useState('');
   const [error, setError] = useState('');
 
   const hitungLuasPermukaan = () => {
-    const a = parseFloat(alas);
-    const tSegitiga = parseFloat(tinggiSegitiga);
     const ls1 = parseFloat(luasSisi1);
     const ls2 = parseFloat(luasSisi2);
     const ls3 = parseFloat(luasSisi3);
+    const ls4 = parseFloat(luasSisi4);
 
-    if (
-      isNaN(a) || isNaN(tSegitiga) || isNaN(ls1) || isNaN(ls2) || isNaN(ls3) ||
-      a <= 0 || tSegitiga <= 0 || ls1 <= 0 || ls2 <= 0 || ls3 <= 0
-    ) {
-      setError('Masukkan nilai yang valid untuk alas, tinggi segitiga, dan luas sisi.');
+    if (isNaN(ls1) || isNaN(ls2) || isNaN(ls3) || isNaN(ls4) || ls1 <= 0 || ls2 <= 0 || ls3 <= 0 || ls4 <= 0) {
+      setError('Masukkan nilai luas sisi yang valid.');
       setLuasPermukaan('');
     } else {
       setError('');
-      const luasAlas = (a * tSegitiga)/2;
-      const luasSelimut = ls1 + ls2 + ls3;
-      setLuasPermukaan(luasAlas + luasSelimut);
+      setLuasPermukaan(ls1 + ls2 + ls3 + ls4);
     }
   };
 
@@ -41,11 +36,11 @@ function LimasSegitiga() {
     const tLimas = parseFloat(tinggiLimas);
 
     if (isNaN(a) || isNaN(tSegitiga) || isNaN(tLimas) || a <= 0 || tSegitiga <= 0 || tLimas <= 0) {
-      setError('Masukkan nilai yang valid untuk alas, tinggi segitiga, dan tinggi limas.');
+      setError('Masukkan nilai alas, tinggi segitiga, dan tinggi limas yang valid.');
       setVolume('');
     } else {
       setError('');
-      const luasAlas =(a * tSegitiga)/2;
+      const luasAlas = (a * tSegitiga) / 2;
       setVolume((1 / 3) * luasAlas * tLimas);
     }
   };
@@ -56,7 +51,7 @@ function LimasSegitiga() {
       <motion.div className="relative z-10 w-full max-w-md" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         <Paper elevation={10} sx={{ padding: 4, backgroundColor: 'rgba(111, 178, 29, 0.445)', backdropFilter: 'blur(10px)', borderRadius: '10px', color: 'white' }}>
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>Kalkulator Limas Segitiga</Typography>
-            <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
+           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
                       Oleh: Davique Ananda Perwira
                     </Typography>
           <Grid container spacing={3}>
@@ -132,6 +127,19 @@ function LimasSegitiga() {
                 type="number"
                 value={luasSisi3}
                 onChange={(e) => setLuasSisi3(e.target.value)}
+                variant="outlined"
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
+                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Luas Sisi 4"
+                type="number"
+                value={luasSisi4}
+                onChange={(e) => setLuasSisi4(e.target.value)}
                 variant="outlined"
                 InputLabelProps={{ style: { color: 'white' } }}
                 InputProps={{ sx: { color: 'white', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black' } } }}
