@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion'; // Import framer-motion
 
@@ -6,12 +6,12 @@ export default function KalkulatorBangunRuang() {
   const bangunRuang = [
     { name: 'Kubus', link: '/kalkulator-bangun-ruang/kubus' },
     { name: 'Balok', link: '/kalkulator-bangun-ruang/balok' },
-    { name: 'Limas Segiempat', link: '/kalkulator-bangun-ruang/limas-segiempat' },
-    { name: 'Prisma Segitiga', link: '/kalkulator-bangun-ruang/prisma-segitiga' },
-    { name: 'Limas Segitiga', link: '/kalkulator-bangun-ruang/limas-segitiga' },
     { name: 'Tabung', link: '/kalkulator-bangun-ruang/tabung' },
     { name: 'Kerucut', link: '/kalkulator-bangun-ruang/kerucut' },
     { name: 'Bola', link: '/kalkulator-bangun-ruang/bola' },
+    { name: 'Prisma Segitiga', link: '/kalkulator-bangun-ruang/prisma-segitiga' },
+    { name: 'Limas Segiempat', link: '/kalkulator-bangun-ruang/limas-segiempat' },
+    { name: 'Limas Segitiga', link: '/kalkulator-bangun-ruang/limas-segitiga' },
   ];
 
   return (
@@ -30,10 +30,10 @@ export default function KalkulatorBangunRuang() {
 
       {/* Judul dengan animasi */}
       <motion.h1
-        className="text-5xl font-bold font-mono mb-10 text-white z-10"
+        className="text-5xl font-bold mb-10 text-white z-10 font-mono"
         initial={{ opacity: 0, y: -50 }} // Animasi awal
         animate={{ opacity: 1, y: 0 }} // Animasi saat muncul
-        transition={{ duration: 1 }} // Durasi animasi
+        transition={{ duration: 1, ease: "easeOut" }} // Animasi lebih smooth
       >
         Kalkulator Bangun Ruang
       </motion.h1>
@@ -48,7 +48,11 @@ export default function KalkulatorBangunRuang() {
               whileTap={{ scale: 0.95 }} // Animasi saat diklik
               initial={{ opacity: 0, y: 50 }} // Animasi awal
               animate={{ opacity: 1, y: 0 }} // Animasi saat muncul
-              transition={{ duration: 0.5, delay: index * 0.1 }} // Durasi animasi dengan delay
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "easeOut", // Animasi lebih smooth
+              }}
             >
               {bangun.name}
             </motion.button>

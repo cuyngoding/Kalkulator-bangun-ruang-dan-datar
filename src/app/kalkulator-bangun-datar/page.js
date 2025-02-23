@@ -33,7 +33,7 @@ export default function KalkulatorBangunDatar() {
         className="text-5xl font-bold mb-10 text-white z-10 font-mono"
         initial={{ opacity: 0, y: -50 }} // Animasi awal
         animate={{ opacity: 1, y: 0 }} // Animasi saat muncul
-        transition={{ duration: 1 }} // Durasi animasi
+        transition={{ duration: 1, ease: "easeOut" }} // Animasi lebih smooth
       >
         Kalkulator Bangun Datar
       </motion.h1>
@@ -48,11 +48,15 @@ export default function KalkulatorBangunDatar() {
               whileTap={{ scale: 0.95 }} // Animasi saat diklik
               initial={{ opacity: 0, y: 50 }} // Animasi awal
               animate={{ opacity: 1, y: 0 }} // Animasi saat muncul
-              transition={{ duration: 0.5, delay: index * 0.1 }} // Durasi animasi dengan delay
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "easeInOut", // Animasi lebih smooth
+              }}
             >
               {bangun.name}
             </motion.button>
-          </Link> 
+          </Link>
         ))}
       </div>
     </div>
