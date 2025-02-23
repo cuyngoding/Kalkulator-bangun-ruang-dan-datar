@@ -45,7 +45,7 @@ function LimasSegitiga() {
       setVolume('');
     } else {
       setError('');
-      const luasAlas = 0.5 * a * tSegitiga;
+      const luasAlas =(a * tSegitiga)/2;
       setVolume((1 / 3) * luasAlas * tLimas);
     }
   };
