@@ -4,39 +4,33 @@ import { TextField, Button, Typography, Container, Paper, Grid } from '@mui/mate
 import { motion } from 'framer-motion';
 
 function Page() {
-  const [panjang, setPanjang] = useState('');
-  const [lebar, setLebar] = useState('');
-  const [tinggi, setTinggi] = useState('');
+  const [rusuk, setRusuk] = useState('');
   const [luas, setLuas] = useState('');
   const [volume, setVolume] = useState('');
   const [error, setError] = useState('');
 
   const hitungLuas = () => {
-    const p = parseFloat(panjang);
-    const l = parseFloat(lebar);
-    const t = parseFloat(tinggi);
+   const r = parseFloat(rusuk);
 
-    if (isNaN(p) || isNaN(l) || isNaN(t) || p <= 0 || l <= 0 || t <= 0) {
-      setError('Masukkan nilai panjang, lebar, dan tinggi yang valid.');
-      setLuas('');
-    } else {
-      setError('');
-      setLuas(2 * ((p * l) + (p * t) + (l * t)));
-    }
+   if(isNaN(r) || r <= 0) {
+     setError('Masukkan nilai jari-jari yang valid.');
+     setLuas('');
+   } else {
+        setError('');
+        setLuas(6 * r * r);
+   }
   };
 
   const hitungVolume = () => {
-    const p = parseFloat(panjang);
-    const l = parseFloat(lebar);
-    const t = parseFloat(tinggi);
+   const r = parseFloat(rusuk);
 
-    if (isNaN(p) || isNaN(l) || isNaN(t) || p <= 0 || l <= 0 || t <= 0) {
-      setError('Masukkan nilai panjang, lebar, dan tinggi yang valid.');
-      setVolume('');
-    } else {
-      setError('');
-      setVolume(p * l * t);
-    }
+   if(isNaN(r) || r <= 0) {
+     setError('Masukkan nilai jari-jari yang valid.');
+     setVolume('');
+   } else {
+        setError('');
+        setVolume(r * r * r);
+   }
   };
 
   return (
@@ -61,26 +55,26 @@ function Page() {
           elevation={10}
           sx={{
             padding: 4,
-            backgroundColor: 'rgba(16, 93, 225, 0.445)', // Transparan
+            backgroundColor: 'rgba(16, 105, 238, 0.445)', // Transparan
             backdropFilter: 'blur(10px)', // Efek blur
             borderRadius: '10px',
             color: 'white',
           }}
         >
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Kalkulator Balok
+            Kalkulator Kubus
           </Typography>
           <Typography variant="subtitle1" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white' }}>
-            Oleh: Ugrasena Wira Nurrahman
+            Oleh: Arthawan Pratama
           </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Panjang"
+                label="Rusuk"
                 type="number"
-                value={panjang}
-                onChange={(e) => setPanjang(e.target.value)}
+                value={rusuk}
+                onChange={(e) => setRusuk(e.target.value)}
                 variant="outlined"
                  InputLabelProps={{ style: { color: 'white' } }} // Label putih
                   InputProps={{
@@ -98,58 +92,6 @@ function Page() {
                     },
                   }}
                   sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Lebar"
-                type="number"
-                value={lebar}
-                onChange={(e) => setLebar(e.target.value)}
-                variant="outlined"
-                InputLabelProps={{ style: { color: 'white' } }} // Label putih
-                InputProps={{
-                  sx: {
-                    color: 'white', // Warna teks input putih
-                    '& .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'black', // Outline putih
-                    },
-                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'black', // Outline putih saat hover
-                    },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'black', // Outline putih saat fokus
-                    },
-                  },
-                }}
-                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Tinggi"
-                type="number"
-                value={tinggi}
-                onChange={(e) => setTinggi(e.target.value)}
-                variant="outlined"
-                InputLabelProps={{ style: { color: 'white' } }} // Label putih
-                InputProps={{
-                  sx: {
-                    color: 'white', // Warna teks input putih
-                    '& .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'black', // Outline putih
-                    },
-                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'black', // Outline putih saat hover
-                    },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'black', // Outline putih saat fokus
-                    },
-                  },
-                }}
-                sx={{ backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '4px' }}
               />
             </Grid>
             {error && (

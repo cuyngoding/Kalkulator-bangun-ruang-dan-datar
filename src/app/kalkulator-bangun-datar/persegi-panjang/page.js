@@ -58,7 +58,7 @@ function Page() {
             elevation={10}
             sx={{
               padding: 4,
-              backgroundColor: 'rgba(128, 128, 128, 0.5)', // Transparan
+              backgroundColor: 'rgba(16, 93, 225, 0.445)', // Transparan
               backdropFilter: 'blur(10px)', // Efek blur
               borderRadius: '10px',
               color: 'white',
